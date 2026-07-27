@@ -1,0 +1,16 @@
+{
+  "repositories": [
+    {
+      "name": "mon-projet-principal",
+      "path": "/data/data/com.termux/files/home/projects/mon-projet-principal",
+      "remote": "https://github.com/mon-user/mon-projet-principal.git",
+      "enabled": true
+    },
+    {
+      "name": "outil-osint",
+      "path": "/data/data/com.termux/files/home/projects/outil-osint",
+      "remote": "https://github.com/mon-user/outil-osint.git",
+      "enabled": true
+    }
+  ]
+}
