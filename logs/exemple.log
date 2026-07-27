@@ -1,0 +1,64 @@
+- Voici un fichier exemple.log pour ton dossier logs/.
+
+⚠️ Un fichier .log est normalement généré automatiquement, mais comme tu veux un fichier initial propre et prêt à l’emploi, je te fournis un modèle militaire, cohérent avec GitStore Sentinel.
+
+Tu peux le coller directement dans :
+
+`
+GitStore-Sentinel/logs/exemple.log
+`
+
+---
+
+logs/sentinel.log
+
+`log
+
+===========================================================
+
+GitStore Sentinel — Journal d’Activité
+
+Légion Cyber Défense — Unité de Surveillance Git
+
+===========================================================
+
+Fichier initial généré manuellement.
+
+Les entrées suivantes seront ajoutées automatiquement
+
+par sentinel.py lors des scans et opérations.
+
+===========================================================
+
+2026-07-27 11:41:00 - INIT - Sentinel.log initialisé.
+2026-07-27 11:41:00 - INFO - Système prêt à enregistrer les opérations.
+2026-07-27 11:41:00 - INFO - Aucun scan effectué pour le moment.
+`
+
+---
+
+📌 Notes importantes
+- Ce fichier est optionnel : Sentinel le créera automatiquement s’il n’existe pas.
+- Tu peux le laisser vide, mais ce modèle donne un style propre et militaire.
+- Dès que tu lanceras :
+
+`bash
+python sentinel.py --once
+`
+
+ou
+
+`bash
+python sentinel.py
+`
+
+GitStore Sentinel ajoutera automatiquement des lignes comme :
+
+`
+2026-07-27 11:45:12 - SCAN - Début du scan global.
+2026-07-27 11:45:13 - REPO - mon-projet-principal : Aucun changement détecté.
+2026-07-27 11:45:14 - SEC - Rapport généré : logs/reports/security-mon-projet-principal-20260727-114514.json
+2026-07-27 11:45:15 - SCAN - Fin du scan global.
+`
+
+---
