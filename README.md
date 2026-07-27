@@ -6,11 +6,11 @@
 
 ### 1. Présentation du projet
 >GitStore Sentinel est un outil en ligne de commande qui :
-- Surveille des dépôts Git (GitHub, GitStore, Git local).
-- Analyse les changements et les risques de sécurité (fichiers sensibles, secrets, dépendances).
+- Surveille des dépôts Git (**GitHub, GitStore, Git local**).
+- Analyse les changements et les risques de sécurité (**fichiers sensibles, secrets, dépendances**).
 - Sauvegarde automatiquement les dépôts dans des archives horodatées.
 - Génère des rapports de sécurité et d’activité.
-- Conçu pour un usage DevOps / SecOps / OSINT / Légion cyber, il peut tourner en mode Sentinelle (daemon léger) sur Termux, Linux ou tout environnement POSIX.
+- Conçu pour un usage **DevOps / SecOps / OSINT / Légion cyber**, il peut tourner en mode Sentinelle (daemon léger) sur Termux, Linux ou tout environnement POSIX.
 
 ---
 
@@ -21,9 +21,9 @@
   - Détection de nouveaux commits et fichiers modifiés.
 
 - Analyse de sécurité :
-  - Scan de fichiers sensibles (.env, id_rsa, config.yml, etc.).
-  - Détection de patterns de secrets (clé API, token, etc.).
-  - Analyse basique des dépendances (requirements.txt, package.json).
+  - Scan de fichiers sensibles (**.env, id_rsa, config.yml, etc.**).
+  - Détection de patterns de secrets (**clé API, token, etc.**).
+  - Analyse basique des dépendances (**requirements.txt, package.json**).
 
 - Sauvegarde automatique :
   - Archive ZIP du dépôt.
@@ -40,9 +40,8 @@
 
 ---
 
-3. Arborescence du projet
-
-`text
+### 3. Arborescence du projet
+```text
 GitStore-Sentinel/
 │── sentinel.py
 │── scanner/
@@ -58,46 +57,38 @@ GitStore-Sentinel/
 │   └── reports/
 │── backups/
 │── README.md
-`
+```
 
 ---
 
-4. Installation
-
-4.1. Prérequis
-
+### 4. Installation
+#### 4.1. Prérequis
 - Python 3.9+
 - Git installé et accessible dans le PATH.
 - Environnement compatible :
   - Linux, Termux, WSL, macOS.
 
-4.2. Clonage du projet
-
-`bash
+#### 4.2. Clonage du projet
+```bash
 git clone https://github.com/<ton-user>/GitStore-Sentinel.git
 cd GitStore-Sentinel
-`
+```
 
-4.3. Installation des dépendances Python
-
-`bash
+#### 4.3. Installation des dépendances Python
+```bash
 python -m venv venv
 source venv/bin/activate    # Termux / Linux
 pip install --upgrade pip
 pip install -r requirements.txt  # (à créer si besoin)
-`
-
-(Pour un premier prototype, tu peux te passer de requirements.txt et utiliser uniquement la stdlib.)
+```
+>(Pour un premier prototype, tu peux te passer de requirements.txt et utiliser uniquement la stdlib.)
 
 ---
 
-5. Configuration
-
-5.1. Fichier config/repos.json
-
+### 5. Configuration
+#### 5.1. Fichier config/repos.json
 Ce fichier liste les dépôts surveillés.
-
-`json
+```json
 {
   "repositories": [
     {
@@ -114,13 +105,11 @@ Ce fichier liste les dépôts surveillés.
     }
   ]
 }
-`
+```
 
-5.2. Fichier config/settings.json
-
-Paramètres globaux du Sentinel.
-
-`json
+#### 5.2. Fichier config/settings.json
+>Paramètres globaux du Sentinel.
+```json
 {
   "scanintervalseconds": 300,
   "log_level": "INFO",
@@ -128,16 +117,13 @@ Paramètres globaux du Sentinel.
   "securityscanenabled": true,
   "maxbackupper_repo": 20
 }
-`
+```
 
 ---
 
-6. Code source — modules principaux
-
-6.1. sentinel.py — Point d’entrée CLI
-
-`python
-
+### 6. Code source — modules principaux
+#### 6.1. sentinel.py — Point d’entrée CLI
+```python
 !/usr/bin/env python3
 import time
 import json
@@ -247,13 +233,13 @@ def main():
 
 if name == "main":
     main()
-`
+```
 
 ---
 
-6.2. scanner/repo_monitor.py — Surveillance des dépôts
-
-`python
+#### 6.2. scanner/repo_monitor.py
+>Surveillance des dépôts
+```python
 import os
 import subprocess
 
@@ -306,13 +292,12 @@ class RepoMonitor:
             "haschanges": haschanges,
             "status_raw": stdout
         }
-`
+```
 
 ---
 
-6.3. scanner/security_check.py — Analyse de sécurité
-
-`python
+#### 6.3. scanner/security_check.py — Analyse de sécurité
+```python
 import os
 import re
 from datetime import datetime
@@ -411,34 +396,30 @@ class BackupEngine:
         self.log(f"[BACKUP] Création de la sauvegarde {backup_name}")
         shutil.makearchive(backuppath, "zip", repo_path)
         self.log(f"[BACKUP] Archive créée: {backup_path}.zip")
-`
+```
 
 ---
 
-7. Utilisation
-
-7.1. Scan unique
-
-`bash
+### 7. Utilisation
+#### 7.1. Scan unique
+```bash
 python sentinel.py --once
-`
+```
 
 Effet :
 - Scan de tous les dépôts configurés.
 - Analyse de sécurité.
 - Sauvegarde si changements détectés.
 
-7.2. Mode Sentinelle (boucle)
-
-`bash
+#### 7.2. Mode Sentinelle (boucle)
+```bash
 python sentinel.py
-`
+```
 
 ou avec intervalle personnalisé :
-
-`bash
+```bash
 python sentinel.py --interval 120
-`
+```
 
 Effet :
 - Boucle infinie avec scan toutes les scanintervalseconds (ou valeur passée).
@@ -446,8 +427,8 @@ Effet :
 
 ---
 
-8. Roadmap (évolutions possibles)
-
+### 8. Roadmap 
+>(évolutions possibles)
 - Mode Recon :
   - Analyse OSINT des issues, PR, contributeurs via API GitHub.
 - Mode Shadow :
@@ -459,20 +440,17 @@ Effet :
 
 ---
 
-9. Licence
-
+### 9. Licence
 Tu peux utiliser une licence libre classique :
-
-`text
+```text
 MIT License
-Copyright (c) 2026 <Ton Nom>
+Copyright (c) 2026 The MadDoG.tmdg 
 Permission is hereby granted, free of charge, to any person obtaining a copy...
-`
+```
 
 ---
 
-10. Résumé pour GitHub
-
+### 10. Résumé pour GitHub
 > GitStore Sentinel est un système de surveillance, d’analyse de sécurité et de sauvegarde automatique pour dépôts Git.  
 > Il détecte les changements, identifie les fichiers sensibles et secrets potentiels, crée des archives horodatées, et génère des rapports de sécurité.  
 > Conçu pour les environnements DevOps, SecOps, OSINT et opérations cyber tactiques.
