@@ -1,0 +1,7 @@
+{
+  "scan_interval_seconds": 300,
+  "log_level": "INFO",
+  "backup_enabled": true,
+  "security_scan_enabled": true,
+  "max_backup_per_repo": 20
+}
