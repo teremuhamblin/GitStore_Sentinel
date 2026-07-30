@@ -56,6 +56,7 @@ GitStore-Sentinel/
 │   ├── sentinel.log
 │   └── reports/
 │── backups/
+│── requirements.txt 
 │── README.md
 ```
 
