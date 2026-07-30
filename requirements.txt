@@ -1,0 +1,54 @@
+# ============================================================
+# GitStore Sentinel — Full Requirements
+# Version complète pour RepoMonitor, SecurityChecker, BackupEngine
+# Compatible Termux / Linux / Environnements militaires
+# ============================================================
+
+# --- Core & Utilitaires ---
+requests==2.32.3
+urllib3==2.2.1
+chardet==5.2.0
+idna==3.7
+
+# --- JSON / YAML / Parsing ---
+pyyaml==6.0.1
+jsonschema==4.22.0
+
+# --- Git & Dépôts ---
+GitPython==3.1.43
+dulwich==0.21.7
+
+# --- Sécurité / Analyse ---
+bandit==1.7.9
+safety==3.2.0
+pycryptodome==3.20.0
+python-magic==0.4.27
+regex==2024.5.15
+
+# --- OSINT / Réseaux ---
+aiohttp==3.10.2
+aiodns==3.2.0
+dnspython==2.6.1
+
+# --- Logs / CLI / Couleurs ---
+rich==13.7.1
+colorama==0.4.6
+termcolor==2.4.0
+
+# --- Compression / Sauvegarde ---
+py7zr==0.21.0
+python-snappy==0.7.1
+zstandard==0.23.0
+
+# --- Hashing / Intégrité ---
+xxhash==3.4.1
+
+# --- Outils système ---
+psutil==6.0.0
+
+# --- Concurrence / Async ---
+asyncio==3.4.3
+
+# --- Divers utiles ---
+click==8.1.7
+tqdm==4.66.4
