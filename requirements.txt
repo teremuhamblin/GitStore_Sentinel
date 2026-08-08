@@ -1,10 +1,10 @@
 # ============================================================
-# GitStore Sentinel — Full Requirements
-# Version complète pour RepoMonitor, SecurityChecker, BackupEngine
-# Compatible Termux / Linux / Environnements militaires
+# GitStore Sentinel — Requirements Optimisés
+# Version militaire pour RepoMonitor, SecurityChecker, BackupEngine
+# Compatible Termux / Linux / Environnements durcis
 # ============================================================
 
-# --- Core & Utilitaires ---
+# --- Core HTTP / Utilitaires ---
 requests==2.32.3
 urllib3==2.2.1
 chardet==5.2.0
@@ -13,10 +13,13 @@ idna==3.7
 # --- JSON / YAML / Parsing ---
 pyyaml==6.0.1
 jsonschema==4.22.0
+ujson==5.10.0            # JSON ultra-rapide
+orjson==3.10.7           # JSON militaire (optimisé Rust)
 
 # --- Git & Dépôts ---
 GitPython==3.1.43
 dulwich==0.21.7
+pygit2==1.15.0           # bindings libgit2 (plus rapide que GitPython)
 
 # --- Sécurité / Analyse ---
 bandit==1.7.9
@@ -24,31 +27,46 @@ safety==3.2.0
 pycryptodome==3.20.0
 python-magic==0.4.27
 regex==2024.5.15
+trufflehog==3.63.0       # détection de secrets dans les dépôts
+detect-secrets==1.5.0    # scanning secret militaire
+yara-python==4.5.0       # règles YARA pour fichiers suspects
 
 # --- OSINT / Réseaux ---
 aiohttp==3.10.2
 aiodns==3.2.0
 dnspython==2.6.1
+httpx==0.27.0            # alternative async moderne à aiohttp
+beautifulsoup4==4.12.3   # parsing HTML pour OSINT
+lxml==5.2.2              # parsing XML/HTML militaire
 
 # --- Logs / CLI / Couleurs ---
 rich==13.7.1
 colorama==0.4.6
 termcolor==2.4.0
+loguru==0.7.2            # logging militaire, remplace logging natif
 
 # --- Compression / Sauvegarde ---
 py7zr==0.21.0
 python-snappy==0.7.1
 zstandard==0.23.0
+brotli==1.1.0            # compression moderne
+lzmaffi==0.3.0           # LZMA optimisé
 
 # --- Hashing / Intégrité ---
 xxhash==3.4.1
+blake3==0.4.1            # hashing militaire ultra-rapide
 
 # --- Outils système ---
 psutil==6.0.0
+platformdirs==4.2.2      # gestion propre des chemins système
 
 # --- Concurrence / Async ---
 asyncio==3.4.3
+anyio==4.3.0             # couche async universelle
+uvloop==0.19.0           # boucle event optimisée (Linux/Termux)
 
 # --- Divers utiles ---
 click==8.1.7
 tqdm==4.66.4
+python-dotenv==1.0.1     # gestion des secrets/env
+cachetools==5.3.3        # caching pour scans
